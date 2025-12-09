@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Computer Graphics Assignment 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  <link type="stylesheet" href="style.css">
+</head>
+
+<body>
+ <!--- telling my users how to move around-->
+  <div class="move_around">Please Use WASD + mouse to move/look and Scroll to zoom</div>
+
+  <!---start of my scene1 -->
+  <a-scene shadow="type: pcfsoft" renderer="antialias: true">
+   
+    <!-- I added Lighting here -->
+    <a-entity light="type: ambient; intensity: 0.6; color: #ffffff"></a-entity>
+    <a-entity light="type: directional; intensity: 0.9; color: #fff"
+              position="-4 8 6" rotation="-45 -20 0"
+              shadow="cast: true; mapSizeWidth: 2048; mapSizeHeight: 2048"></a-entity>
+
+    <!-- my Camera -->
+    <a-entity id="cameraRig" position="0 1.6 4">
+      <a-entity camera look-controls wasd-controls position="0 0 0"></a-entity>
+    </a-entity>
+
+    <!--The Ground -->
+    <a-plane rotation="-90 0 0" width="30" height="30" color="#e6f7e6" receive-shadow="true"></a-plane>
+
+    <!-- I Added a a ring like grass under the table -->
+    <a-ring position="0 0.01 0" rotation="-90 0 0" radius-inner="1.0" radius-outer="2.2" color="#0cd53b"
+            material="shader: standard; roughness: 1"></a-ring>
+
+    <!-- Table (top and legs) -->
+    <a-box id="tableTop" position="0 0.85 0" width="1.6" height="0.12" depth="1" color="#8b5a2b" shadow="receive:true; cast:true"></a-box>
+
+    <!-- Table legs -->
+    <a-cylinder position="-0.72 0.42 -0.45" radius="0.05" height="0.84" color="#6b4022" shadow="cast:true"></a-cylinder>
+    <a-cylinder position="0.72 0.42 -0.45" radius="0.05" height="0.84" color="#6b4022" shadow="cast:true"></a-cylinder>
+    <a-cylinder position="-0.72 0.42 0.45" radius="0.05" height="0.84" color="#6b4022" shadow="cast:true"></a-cylinder>
+    <a-cylinder position="0.72 0.42 0.45" radius="0.05" height="0.84" color="#6b4022" shadow="cast:true"></a-cylinder>
+
+
+<!-- Chair 1 (left) -->
+<a-entity position="-1.1 0 0.3" rotation="0 90 0">
+  <a-box position="0 0.45 0" width="0.5" height="0.08" depth="0.5" color="#3a3a3a" shadow="cast:true"></a-box>
+  <a-box position="0 0.8 -0.18" width="0.5" height="0.7" depth="0.08" color="#2f2f2f" shadow="cast:true"></a-box>
+  <a-cylinder position="-0.22 0.22 0.22" radius="0.03" height="0.44" color="#2b2b2b" shadow="cast:true"></a-cylinder>
+  <a-cylinder position="0.22 0.22 0.22" radius="0.03" height="0.44" color="#2b2b2b" shadow="cast:true"></a-cylinder>
+  <a-cylinder position="-0.22 0.22 -0.22" radius="0.03" height="0.44" color="#2b2b2b" shadow="cast:true"></a-cylinder>
+  <a-cylinder position="0.22 0.22 -0.22" radius="0.03" height="0.44" color="#2b2b2b" shadow="cast:true"></a-cylinder>
+</a-entity>
+
+<!-- Chair 2 (right) -->
+<a-entity position="1.1 0 -0.2" rotation="0 270 0">
+  <a-box position="0 0.45 0" width="0.5" height="0.08" depth="0.5" color="#3a3a3a" shadow="cast:true"></a-box>
+  <a-box position="0 0.8 -0.18" width="0.5" height="0.7" depth="0.08" color="#2f2f2f" shadow="cast:true"></a-box>
+  <a-cylinder position="-0.22 0.22 0.22" radius="0.03" height="0.44" color="#2b2b2b" shadow="cast:true"></a-cylinder>
+  <a-cylinder position="0.22 0.22 0.22" radius="0.03" height="0.44" color="#2b2b2b" shadow="cast:true"></a-cylinder>
+  <a-cylinder position="-0.22 0.22 -0.22" radius="0.03" height="0.44" color="#2b2b2b" shadow="cast:true"></a-cylinder>
+  <a-cylinder position="0.22 0.22 -0.22" radius="0.03" height="0.44" color="#2b2b2b" shadow="cast:true"></a-cylinder>
+</a-entity>
+
+<!-- Chair 3 -->
+<a-entity position="0 0 -1.2" rotation="0 0 0" scale="0.95">
+  <a-box position="0 0.45 0" width="0.45" height="0.08" depth="0.45" color="#4a4a4a" shadow="cast:true"></a-box>
+  <a-box position="0 0.78 -0.15" width="0.45" height="0.6" depth="0.08" color="#424242" shadow="cast:true"></a-box>
+  <a-cylinder position="-0.2 0.22 0.2" radius="0.028" height="0.44" color="#333" shadow="cast:true"></a-cylinder>
+  <a-cylinder position="0.2 0.22 0.2" radius="0.028" height="0.44" color="#333" shadow="cast:true"></a-cylinder>
+  <a-cylinder position="-0.2 0.22 -0.2" radius="0.028" height="0.44" color="#333" shadow="cast:true"></a-cylinder>
+  <a-cylinder position="0.2 0.22 -0.2" radius="0.028" height="0.44" color="#333" shadow="cast:true"></a-cylinder>
+</a-entity>
+
+
+    <!-- Objects on the table -->
+    <!-- MiLo Tin (using cylinder) -->
+    <a-cylinder id="miloTin" position="-0.45 0.97 0.12" radius="0.16" height="0.24" color="#2a6f3c" shadow="cast:true">
+      <!-- Milo text as the label paper on the tin -->
+      <a-text value="Milo" color="#ffebcd" align="center" position="0 0.04 0.17" rotation="0 0 0" width="1.2"></a-text>
+      <!-- lid -->
+      <a-cylinder position="0 0.13 0" radius="0.165" height="0.02" color="#3b8b54"></a-cylinder>
+    </a-cylinder>
+
+    <!-- Milk Tin (cylinder) -->
+    <a-cylinder id="milkTin" position="0.45 0.97 -0.12" radius="0.14" height="0.26" color="#ffffff" shadow="cast:true">
+      <!--Milk label as text -->
+      <a-text value="Milk" color="#1a1a1a" align="center" position="0 0.05 0.15" width="1.0"></a-text>
+      <!-- solid label background to support white tin  -->
+      <a-box position="0 0.05 0.14" width="0.15" height="0.05" depth="0.01" color="#6aa4ff"></a-box>
+      <!-- lid -->
+      <a-cylinder position="0 0.14 0" radius="0.145" height="0.02" color="#f0f0f0"></a-cylinder>
+    </a-cylinder>
+
+    <!-- Cup 1 -->
+    <a-entity id="cup1" position="-0.15 0.95 -0.18">
+      <!-- cup wall -->
+      <a-cylinder position="0 0 0" radius="0.06" height="0.08" color="#f4f1e6" shadow="cast:true"></a-cylinder>
+      <!-- interior (slightly darker) -->
+      <a-cylinder position="0 0.01 0" radius="0.045" height="0.02" color="#dfe6e1"></a-cylinder>
+      <!-- handle -->
+      <a-torus position="0.075 0 0" radius="0.02" radius-tubular="0.008" rotation="0 90 0" segments-radial="16" segments-tubular="8" color="#f4f1e6"></a-torus>
+    </a-entity>
+
+    <!-- Cup 2 -->
+    <a-entity id="cup2" position="0.15 0.95 0.18">
+      <a-cylinder position="0 0 0" radius="0.06" height="0.08" color="#fff6ee" shadow="cast:true"></a-cylinder>
+      <a-cylinder position="0 0.01 0" radius="0.045" height="0.02" color="#f0e8de"></a-cylinder>
+      <a-torus position="0.075 0 0" radius="0.02" radius-tubular="0.008" rotation="0 90 0" segments-radial="16" segments-tubular="8" color="#fff6ee"></a-torus>
+    </a-entity>
+
+    <!-- Small decorative vase with flower -->
+    <a-entity position="0 1.05 0.34">
+      <a-cylinder radius="0.06" height="0.12" color="#ffd27f" shadow="cast:true"></a-cylinder>
+      <a-cylinder position="0 0.08 0" radius="0.02" height="0.22" color="#2e7d32"></a-cylinder>
+      <!-- flower (simple sphere petals) -->
+      <a-sphere position="0 0.22 0" radius="0.06" color="#ff6b6b"></a-sphere>
+    </a-entity>
+    
+    <!-- Fruit bowl -->
+<a-entity position="0 1.05 -0.46">
+  <a-torus radius="0.11" radius-tubular="0.03" rotation="90 0 0" color="#b07a4b"></a-torus>
+
+  <a-sphere position="-0.05 0.05 0" radius="0.04" color="#ffcc00"></a-sphere>
+  <a-sphere position="0.05 0.05 -0.02" radius="0.035" color="#ff6f61"></a-sphere>
+  <a-sphere position="0 0.05 0.04" radius="0.03" color="#6fe28f"></a-sphere>
+</a-entity>
+
+
+
+    <!-- Simple background trees/plants to beautify -->
+    <a-entity position="-4 0 -6">
+      <a-cylinder radius="0.2" height="1.6" color="#6b3a1a"></a-cylinder>
+      <a-sphere position="0 1.1 0" radius="0.9" color="#2b8b3a"></a-sphere>
+    </a-entity>
+
+    <a-entity position="3 0 -5">
+      <a-cylinder radius="0.18" height="1.4" color="#6b3a1a"></a-cylinder>
+      <a-sphere position="0 0.95 0" radius="0.75" color="#3ba14a"></a-sphere>
+    </a-entity>
+
+    <!-- Sky -->
+    <a-sky color="#cdeef6"></a-sky>
+
+  </a-scene>
+</body>
+</html>
