@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Computer Graphics Assignment, Karen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  </head>
+
+  <body>
+    <div style="position:absolute;top:10px;left:10px;font-family:sans-serif;">
+      Move with WASD, mouse to look, scroll to zoom.
+    </div>
+
+    <a-scene shadow="type:pcfsoft" renderer="antialias: true">
+
+      <!-- LIGHTING -->
+      <a-entity light="type: ambient; intensity: 0.6; color: #ffffff"></a-entity>
+      <a-entity light="type: directional; intensity: 0.9; castShadow: true"
+                position="5 8 3" rotation="-45 45 0"></a-entity>
+
+      <!-- CAMERA -->
+      <a-entity id="rig" position="0 1.6 5">
+        <a-entity camera wasd-controls look-controls></a-entity>
+      </a-entity>
+
+      <!-- GROUND/Sea -->
+      <a-plane rotation="-90 0 0" width="40" height="40" color="#5ca5ef" receive-shadow="true"></a-plane>
+
+      <!-- TABLE  -->
+      <a-box position="0 1 0" height="0.12" width="1.8" depth="1.2" color="#6b4f3b" shadow="cast:true; receive:true"></a-box>
+
+      <!-- TABLE LEGS -->
+      <a-cylinder radius="0.06" height="1" position="-0.8 0.5 0.5" color="#523a2a"></a-cylinder>
+      <a-cylinder radius="0.06" height="1" position="0.8 0.5 0.5" color="#523a2a"></a-cylinder>
+      <a-cylinder radius="0.06" height="1" position="-0.8 0.5 -0.5" color="#523a2a"></a-cylinder>
+      <a-cylinder radius="0.06" height="1" position="0.8 0.5 -0.5" color="#523a2a"></a-cylinder>
+
+<!-- CHAIR 1 — -->
+<a-entity position="-1.3 0 0.2" rotation="0 90 0">
+  <a-box width="0.55" height="0.08" depth="0.55" position="0 0.45 0" color="#4d6c8b"></a-box>
+  <a-box width="0.55" height="0.7" depth="0.1" position="0 0.8 -0.22" color="#3f556d"></a-box>
+  <a-cylinder radius="0.03" height="0.5" position="-0.22 0.22 0.22" color="#2e3d4e"></a-cylinder>
+  <a-cylinder radius="0.03" height="0.5" position="0.22 0.22 0.22" color="#2e3d4e"></a-cylinder>
+  <a-cylinder radius="0.03" height="0.5" position="-0.22 0.22 -0.22" color="#2e3d4e"></a-cylinder>
+  <a-cylinder radius="0.03" height="0.5" position="0.22 0.22 -0.22" color="#2e3d4e"></a-cylinder>
+</a-entity>
+
+<!-- CHAIR 2 —-->
+<a-entity position="1.4 0 -0.1" rotation="0 -90 0">
+  <a-box width="0.5" height="0.08" depth="0.5" position="0 0.45 0" color="#4d6c8b"></a-box>
+  <a-box width="0.5" height="0.65" depth="0.1" position="0 0.78 -0.22" color="#3f556d"></a-box>
+  <a-cylinder radius="0.03" height="0.45" position="-0.2 0.22 0.2" color="#2e3d4e"></a-cylinder>
+  <a-cylinder radius="0.03" height="0.45" position="0.2 0.22 0.2" color="#2e3d4e"></a-cylinder>
+  <a-cylinder radius="0.03" height="0.45" position="-0.2 0.22 -0.2" color="#2e3d4e"></a-cylinder>
+  <a-cylinder radius="0.03" height="0.45" position="0.2 0.22 -0.2" color="#2e3d4e"></a-cylinder>
+</a-entity>
+
+
+      <!-- CUP 1 -->
+      <a-entity position="-0.3 1.1 0.1">
+        <a-cylinder radius="0.06" height="0.1" color="#fff0e6" shadow="cast:true"></a-cylinder>
+        <a-torus radius="0.025" radius-tubular="0.01" position="0.08 0 0" rotation="0 90 0" color="#fff0e6"></a-torus>
+      </a-entity>
+
+      <!-- CUP 2 -->
+      <a-entity position="0.25 1.1 0.25">
+        <a-cylinder radius="0.06" height="0.1" color="#f7f7ff" shadow="cast:true"></a-cylinder>
+        <a-torus radius="0.025" radius-tubular="0.01" position="0.08 0 0" rotation="0 90 0" color="#f7f7ff"></a-torus>
+      </a-entity>
+
+      <!-- MILO TIN -->
+      <a-cylinder radius="0.15" height="0.25" position="-0.55 1.13 -0.15" color="#2f7d44" shadow="cast:true">
+        <a-text value="MILO" color="#fff" position="-0.05 0.06 0.15" width="1"></a-text>
+      </a-cylinder>
+
+      <!-- MILK TIN -->
+      <a-cylinder radius="0.14" height="0.28" position="0.55 1.2 0.02" color="#ffffff" shadow="cast:true">
+        <a-box width="0.18" height="0.05" depth="0.02" position="0 0.05 0.15" color="#aad4ff"></a-box>
+        <a-text value="MILK" color="#000" position="-0.05 0.05 0.16" width="1"></a-text>
+      </a-cylinder>
+
+      <!--BISCUIT PACK -->
+      <a-entity position="0 1.1 -0.29">
+        <a-box width="0.35" height="0.12" depth="0.18" color="#d43f3f" shadow="cast:true"></a-box>
+        <a-text value="BISCUITS" color="#fff" position="-0.08 0.02 0.12" width="1"></a-text>
+      </a-entity>
+
+      <!-- Small potted plant -->
+      <a-entity position="0 1.18 0.45">
+        <a-cylinder height="0.14" radius="0.07" color="#c48f54"></a-cylinder>
+        <a-sphere radius="0.1" position="0 0.12 0" color="#3da565"></a-sphere>
+      </a-entity>
+
+      <!-- Background trees -->
+      <a-entity position="-5 0 -7">
+        <a-cylinder radius="0.2" height="2" color="#6d3a22"></a-cylinder>
+        <a-sphere radius="1" position="0 1.4 0" color="#2f9e45"></a-sphere>
+      </a-entity>
+
+      <a-entity position="4 0 -6">
+        <a-cylinder radius="0.17" height="1.7" color="#6d3a22"></a-cylinder>
+        <a-sphere radius="0.8" position="0 1.2 0" color="#3cbf59"></a-sphere>
+      </a-entity>
+
+      <!---Place name and grass -->
+      <a-entity position="0 0 -5">
+          <a-box radius="1" width="15" depth="20" height="0.1" color="green"></a-box>
+          <a-text value="Karen's Restaurant" color="black" position="-3.5 4.07 1.1" width="17"></a-text>
+      </a-entity>
+
+      <!-- SKY -->
+      <a-sky color="#d5f3ff"></a-sky>
+
+    </a-scene>
+  </body>
+</html>
